@@ -1,0 +1,52 @@
+<% layout("layouts/boilerplate.ejs") -%>
+<body>
+    
+    <form action="/products/mobiles" method="POST" class="new-mobile" enctype="multipart/form-data">
+        <label for="title">Title</label>
+        <input type="text" name="mobile[title]" id="title" placeholder="Enter mobile name" required />
+
+        <label for="price">Price</label>
+        <input type="number" name="mobile[price]" id="price" placeholder="Enter mobile price" required />
+
+        <label for="image">Upload Image</label>
+        <input type="file" name="mobile[image]" id="image" placeholder="Upload mobile image" required />
+
+        <label for="model_number">Model Number</label>
+        <input type="text" name="mobile[model_number]" id="model_number" placeholder="Enter model Number" />
+
+        <label for="network_tech">Network Technology</label>
+        <input type="text" name="mobile[nt]" id="network_tech" placeholder="Enter Network Technology" />
+
+        <label for="weight">Weight</label>
+        <input type="text" name="mobile[weight]" id="weight" placeholder="Enter mobile weight"/>
+
+        <label for="build">Build</label>
+        <input type="text" name="mobile[build]" id="build" placeholder="Enter mobile build"/>
+
+        <label for="display">Display</label>
+        <input type="text" name="mobile[display]" id="display" placeholder="Enter mobile display" />
+
+        <label for="operating-system">Operating System</label>
+        <input type="text" name="mobile[os]" id="oprating-system" placeholder="Enter mobile OS" required />
+
+        <label for="cpu">CPU</label>
+        <input type="text" name="mobile[cpu]" id="cpu" placeholder="Enter mobile CPU" required />
+
+        <label for="internal">Internal Memory</label>
+        <input type="text" name="mobile[internal]" id="internal" placeholder="Enter mobile Memory" required />
+
+        <label for="p-camera">Primary Camera</label>
+        <input type="text" name="mobile[pc]" id="p-camera" placeholder="Enter mobile primary camera" />
+
+        <label for="s-camera">Secondary Camera</label>
+        <input type="text" name="mobile[sc]" id="s-camera" placeholder="Enter mobile Secondary camera" />
+
+        <label for="battery">Battery</label>
+        <input type="text" name="mobile[battery]" id="battery" placeholder="Enter mobile battery" />
+
+        <label for="usb">USB</label>
+        <input type="text" name="mobile[usb]" id="usb" placeholder="Enter mobile USB" required />
+        
+        <button class="mobile-add-btn" type="submit">Submit</button>
+    </form>
+</body>

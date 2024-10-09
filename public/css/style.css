@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Category Styles */
+.category {
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Space between items */
+    align-items: center; /* Center items vertically */
+    padding: 20px; /* Padding around category */
+    background-color: #f4f4f4; /* Light background */
+}
+
+.mobile, .laptops, .tablet {
+    flex: 1; /* Equal space for each category */
+    text-align: center; /* Center text */
+    margin: 0 10px; /* Margin between items */
+}
+
+.mobile-content, .laptop-content, .tablet-content {
+    background-color: white; /* White background for each item */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 15px; /* Padding inside each content */
+    transition: transform 0.3s; /* Animation for hover effect */
+}
+
+.mobile-content:hover, .laptop-content:hover, .tablet-content:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+    
+}
+
+/* Image Styles */
+.mobile-content img, 
+.laptop-content img, 
+.tablet-content img {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slightly rounded image corners */
+    
+}
+

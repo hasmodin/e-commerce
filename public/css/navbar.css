@@ -1,0 +1,57 @@
+/* General reset */
+
+
+/* Navigation Styles */
+nav {
+    background-color: #333; /* Dark background */
+    color: white; /* Text color */
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Center vertically */
+    padding: 15px 20px; /* Padding around nav */
+}
+
+/* Logo Section */
+.navlogo {
+    display: flex; /* Flexbox for logo and links */
+    align-items: center; /* Center vertically */
+}
+
+.navlogo a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    margin-right: 20px; /* Space between items */
+    font-weight: bold; /* Make text bold */
+}
+
+/* Hover Effect */
+.navlogo a:hover {
+    color: #ff9800; /* Change color on hover */
+}
+
+/* Phone Number Links */
+.nav-links {
+    display: flex; /* Flexbox for links */
+    align-items: center; /* Center vertically */
+}
+
+.nav-links a {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+    margin-left: 20px; /* Space between items */
+}
+
+/* Hover Effect for Phone Number */
+.nav-links a:hover {
+    color: #ff9800; /* Change color on hover */
+}
+
+/* Font Awesome Icon */
+.navlogo i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.nav-links i{
+    margin-right: 5px;
+}

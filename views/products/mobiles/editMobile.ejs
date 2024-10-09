@@ -1,0 +1,39 @@
+<% layout("layouts/boilerplate.ejs") -%>
+
+<body>
+    
+    <form action="/products/mobiles/<%= mobile._id %>?_method=PUT" method="POST" class="edit-mobile" enctype="multipart/form-data">
+        <label for="title">Title</label>
+        <input type="text" name="mobile[title]" id="title" value="<%= mobile.title %>"  required />
+        <label for="price">Price</label>
+        <input type="number" name="mobile[price]" id="price" value="<%= mobile.price %>"  required />
+        
+        <label for="image">Upload Image</label>
+        <input type="file" name="mobile[image]" id="image" placeholder="Upload mobile image" />
+        <label for="model_number">Model Number</label>
+        <input type="number" name="mobile[model_number]" id="model_number" value="<%= mobile.model_number %>" />
+        <label for="network_tech">Network Technology</label>
+        <input type="text" name="mobile[nt]" id="network_tech" value="<%= mobile.nt %>" />
+        <label for="weight">Weight</label>
+        <input type="text" name="mobile[weight]" id="weight" value="<%= mobile.weight %>" />
+        <label for="build">Build</label>
+        <input type="text" name="mobile[build]" id="build" value="<%= mobile.build %>" />
+        <label for="display">Display</label>
+        <input type="text" name="mobile[display]" id="display" value="<%= mobile.display %>" />
+        <label for="operating-system">Operating System</label>
+        <input type="text" name="mobile[os]" id="oprating-system" value="<%= mobile.os %>"  required />
+        <label for="cpu">CPU</label>
+        <input type="text" name="mobile[cpu]" id="cpu" value="<%= mobile.cpu %>" />
+        <label for="internal">Internal Memory</label>
+        <input type="text" name="mobile[internal]" id="internal"  value="<%= mobile.internal %>" required />
+        <label for="p-camera">Primary Camera</label>
+        <input type="text" name="mobile[pc]" id="p-camera" value="<%= mobile.pc %>"  />
+        <label for="s-camera">Secondary Camera</label>
+        <input type="text" name="mobile[sc]" id="s-camera" value="<%= mobile.sc %>" />
+        <label for="battery">Battery</label>
+        <input type="text" name="mobile[battery]" id="battery" value="<%= mobile.battery %>" />
+        <label for="usb">USB</label>
+        <input type="text" name="mobile[usb]" id="usb" value="<%= mobile.usb %>" required />
+        <button class="mobile-edit-btn" type="submit">Update</button>
+    </form>
+</body>

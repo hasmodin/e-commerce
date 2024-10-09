@@ -1,0 +1,76 @@
+<% layout("layouts/boilerplate.ejs") -%>
+<body>
+    <a href="/products/mobiles/<%=mobile._id %>/editMobile">Edit New Mobile</a>
+   <form method="POST" action="/products/mobiles/<%= mobile._id %>?_method=DELETE">
+    <button class="delteBtn">Delete</button>
+   </form>
+        <div class="mobile-show-container">
+            <div class="mobile-image">
+                <img src="<%= mobile.image.url %>" alt="iphone 16">
+            </div>
+            <div class="mobile-title">
+                <h2><span>Apple</span></h2>
+                <h3><%= mobile.title %></h3>
+                <h3><span>Now :</span> QR <%= mobile.price %></h3>
+                <div class="buy-btns">
+                    <button class="buy-btn">Buy Now</button>
+                    <button class="whatsapp-btn">Order by Whatsapp</button>
+                </div>
+            </div>
+        </div>
+        <h2 class="product-spf">Product Specifications</h2>
+      <table>
+        <tbody>
+            <tr>
+                <th>Network Technology</th>
+                <td><%= mobile.nt %></td>
+            </tr>
+            <tr>
+                <th>Model Number</th>
+                <td><%= mobile.model_number %></td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td><%= mobile.weight %></td>
+            </tr>
+            <tr>
+                <th>Build</th>
+                <td><%= mobile.build %></td>
+            </tr>
+            <tr>
+                <th>Display</th>
+                <td><%= mobile.display %></td>
+            </tr>
+            <tr>
+                <th>Operating System</th>
+                <td><%= mobile.os %></td>
+            </tr>
+            <tr>
+                <th>CPU</th>
+                <td><%= mobile.cpu %></td>
+            </tr>
+            <tr>
+                <th>Internal</th>
+                <td><%= mobile.internal %></td>
+            </tr>
+            <tr>
+                <th>Primary Camera</th>
+                <td><%= mobile.pc %></td>
+            </tr>
+            <tr>
+                <th>Secondary Camera</th>
+                <td><%= mobile.sc %></td>
+            </tr>
+            <tr>
+                <th>Battery</th>
+                <td><%= mobile.battery %></td>
+            </tr>
+            <tr>
+                <th>USB</th>
+                <td><%= mobile.usb %></td>
+            </tr>
+        </tbody>
+      </table>
+      <br><br><br><br><br><br>
+
+</body>

@@ -1,0 +1,22 @@
+/* Footer Styles */
+footer {
+    background-color: #333; /* Dark background */
+    color: white; /* Text color */
+    text-align: center; /* Centered text */
+    padding: 15px 0; /* Padding for top and bottom */
+    position: fixed; /* Ensure footer is positioned relative */
+    bottom: 0; /* Stick to the bottom if needed */
+    width: 100%; /* Full width */
+    font-size: 14px; /* Font size */
+}
+
+/* Responsive Text */
+footer p {
+    margin: 0; /* Remove default margin */
+}
+
+/* Hover Effect (Optional) */
+footer p:hover {
+    color: #ff9800; /* Change color on hover */
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
