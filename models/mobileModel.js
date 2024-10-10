@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
+import User from "./userModel.js";
 
 const mobileSchema = new Schema({
     title: {
@@ -51,9 +52,11 @@ const mobileSchema = new Schema({
     },
     usb: {
         type: String,
-    }
-    
-
+    },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },  
 },
 {
     timestamps: true,

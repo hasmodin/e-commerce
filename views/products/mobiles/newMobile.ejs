@@ -1,6 +1,8 @@
 <% layout("layouts/boilerplate.ejs") -%>
 <body>
-    
+    <% if(error && error.length > 0) { %>
+        <p class="errorMsg"><%= error %></p>
+    <% } %>
     <form action="/products/mobiles" method="POST" class="new-mobile" enctype="multipart/form-data">
         <label for="title">Title</label>
         <input type="text" name="mobile[title]" id="title" placeholder="Enter mobile name" required />

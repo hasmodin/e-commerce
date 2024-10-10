@@ -1,9 +1,17 @@
 <% layout("layouts/boilerplate.ejs") -%>
 <body>
-    <a href="/products/mobiles/<%=mobile._id %>/editMobile">Edit New Mobile</a>
-   <form method="POST" action="/products/mobiles/<%= mobile._id %>?_method=DELETE">
-    <button class="delteBtn">Delete</button>
-   </form>
+    <% if(mobile && mobile.owner) { %>
+        <% if (mobile.owner.equals(currUser._id)) { %> 
+            <a href="/products/mobiles/<%= mobile._id %>/editMobile">Edit New Mobile</a>
+            <form method="POST" action="/products/mobiles/<%= mobile._id %>?_method=DELETE">
+                <button class="deleteBtn">Delete</button>
+            </form>
+        <% } %>
+   <% } %>
+    
+    
+   
+   
         <div class="mobile-show-container">
             <div class="mobile-image">
                 <img src="<%= mobile.image.url %>" alt="iphone 16">

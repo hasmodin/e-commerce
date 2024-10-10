@@ -1,19 +1,20 @@
 <% layout("layouts/boilerplate.ejs") -%>
 <body>
-  <a href="/products/mobiles/newMobile">Add New Mobile</a> <br /><br />
-  
+  <% if(success && success.length > 0) { %>
+  <p class="successMsg"><%= success %></p>
+  <% } %>
 
   <div class="card-container">
     <% for(mobile of mobiles) { %>
-  
-      <div class="mobile-card">
-        <a href="/products/mobiles/<%=mobile._id %>">
+
+    <div class="mobile-card">
+      <a href="/products/mobiles/<%=mobile._id %>">
         <img src="<%= mobile.image.url %>" alt="mobile image" />
         <h4><%= mobile.title %></h4>
         <h3>QR <%= mobile.price %></h3>
-    </a>
-      </div>
-    
+      </a>
+    </div>
+
     <!-- Repeat mobile-card for other items -->
     <% } %>
   </div>

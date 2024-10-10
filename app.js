@@ -7,8 +7,14 @@ import path from "path";
 import { fileURLToPath } from 'url';
 import engine from "ejs-mate";
 import methodOverride from "method-override";
+import passport from 'passport';
+import LocalStrategy from "passport-local";
+import session from 'express-session';
+import flash from "connect-flash";
+import User from "./models/userModel.js";
 import productRouter from "./routes/productRoute.js"
 import mobileRouter from "./routes/mobileRoute.js"
+import userRouter from "./routes/userRoute.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -34,12 +40,42 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.engine("ejs", engine);
 app.use(methodOverride("_method"));
+const sessionOptions =({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { 
+        expire: Date.now() + 7 * 24 * 60 * 60 * 1000, // 7days, 24hours, 60minutes, 60sec, 1000milisecond
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+     }
+})
+
+//middleware for flash messages
+app.use(flash());
+
+app.use(session(sessionOptions));
+app.use(passport.initialize());
+app.use(passport.session());
+
+//passport configuration 
+passport.use(User.createStrategy());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+   res.locals.currUser = req.user;
+  next();
+})
 
 
 // All routes
-
 app.use("/", productRouter);
 app.use("/", mobileRouter);
+app.use("/", userRouter);
 
 
 app.get("/products/laptops", (req, res) => {

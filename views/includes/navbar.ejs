@@ -1,14 +1,31 @@
 <body>
-    <nav>
-        <div class="navlogo">
-            <a href="/products"><span><i class="fa-solid fa-list"></i></span> All Category</a>
-            <a href="/products/mobiles">mobile</a>
-            <a href="/products/laptops">Laptops</a>
-            <a href="/products/tablets">Tablets</a>
-            <a href="#"></a>
-        </div>
-        <div class="nav-links">
-            <a href="#"><span><i class="fa-solid fa-phone"></i></span>+974-50537411</a>
-        </div>
-    </nav>
+  <nav>
+    <div class="navlogo">
+      <a href="/products"
+        ><span><i class="fa-solid fa-list"></i></span> All Category</a
+      >
+      <a href="/products/mobiles">mobile</a>
+      <a href="/products/laptops">Laptops</a>
+      <a href="/products/tablets">Tablets</a>
+      <a href="#"></a>
+    </div>
+    <div class="nav-links">
+      <% if(currUser) { %>
+      <a href="/products/mobiles/newMobile">Add Mobile</a>
+      <% } %> <% if(!currUser) { %>
+      <a href="/login"
+        ><span><i class="fa-solid fa-key"></i></span>Login</a
+      >
+      <% } %> <% if(currUser) { %>
+      <a href="/logout"
+        ><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span
+        >Logout</a
+      >
+      <% } %>
+
+      <a href="#"
+        ><span><i class="fa-solid fa-phone"></i></span>+974-50537411</a
+      >
+    </div>
+  </nav>
 </body>

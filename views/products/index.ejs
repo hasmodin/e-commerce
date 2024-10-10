@@ -1,34 +1,44 @@
 <% layout("layouts/boilerplate.ejs") -%>
 <body>
+  <% if(success && success.length > 0) { %>
+  <p class="successMsg"><%= success %></p>
+  <% } %> <% if(error && error.length > 0) { %>
+  <p class="errorMsg"><%= error %></p>
+  <% } %>
 
-    <div class="category">
-        <div class="mobile">
-            <div class="mobile-content">
-                <a href="/products/mobiles">
-                    <img src="https://static.alaneesqatar.qa/2023/06/icon-Smartphone.png" alt="Mobile">
-                </a>
-                 
-            </div>
-        </div>
-    
-        <div class="laptops">
-            <div class="laptop-content">
-               <a href="/products/laptops">
-                <img src="https://static.alaneesqatar.qa/2023/06/icon-laptops.png" alt="Laptops">
-               </a>
-                
-            </div>
-        </div>
-    
-        <div class="tablet">
-            <div class="tablet-content">
-                <a href="/products/tablets">
-                    <img src="https://static.alaneesqatar.qa/2023/06/icon-tablets.png" alt="Tablet">
-                </a>
-               
-            </div>
-        </div>
-      
+  <div class="category">
+    <div class="mobile">
+      <div class="mobile-content">
+        <a href="/products/mobiles">
+          <img
+            src="https://static.alaneesqatar.qa/2023/06/icon-Smartphone.png"
+            alt="Mobile"
+          />
+        </a>
+      </div>
     </div>
-    
+
+    <div class="laptops">
+      <div class="laptop-content">
+        <a href="/products/laptops">
+          <img
+            src="https://static.alaneesqatar.qa/2023/06/icon-laptops.png"
+            alt="Laptops"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="tablet">
+      <div class="tablet-content">
+        <a href="/products/tablets">
+          <img
+            src="https://static.alaneesqatar.qa/2023/06/icon-tablets.png"
+            alt="Tablet"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <h2 class="recent-product">Recent added products</h2>
 </body>

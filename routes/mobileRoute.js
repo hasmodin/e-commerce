@@ -4,6 +4,7 @@ import multer from "multer";
 import { storage } from "../cloudConfig.js";
 const upload = multer({ storage });
 import Mobile from "../models/mobileModel.js";
+import User from "../models/userModel.js";
 
 router.get("/products/mobiles", async (req, res) => {
   const mobiles = await Mobile.find({});
@@ -22,13 +23,14 @@ router.post(
       const newMobile = new Mobile(req.body.mobile);
       let url = req.file.path;
       let filename = req.file.filename;
-
       newMobile.image = { url, filename };
-      const result = await newMobile.save();
-      console.log(result);
+      newMobile.owner = req.user._id;
+      await newMobile.save();
+      req.flash("success", "New mobile uploaded");
       res.redirect("/products/mobiles");
     } catch (error) {
       console.log(error);
+      req.flash("error", "Something went wrong!");
       res.redirect("/products/mobiles/newMobile");
     }
   }
@@ -51,38 +53,43 @@ router.get("/products/mobiles/:id/editMobile", async (req, res) => {
   res.render("products/mobiles/editMobile.ejs", { mobile });
 });
 
-router.put("/products/mobiles/:id", upload.single('mobile[image]'), async (req, res) => {
-  let { id } = req.params;
+router.put(
+  "/products/mobiles/:id",
+  upload.single("mobile[image]"),
+  async (req, res) => {
+    let { id } = req.params;
     try {
-        
-        const mobile = await Mobile.findByIdAndUpdate(id, { ...req.body.mobile}, {new: true});
-           // Handle file if it exists
-           if (typeof req.file !== "undefined")  {
-            let url = req.file.path;
-            let filename = req.file.filename;
-            mobile.image = {url, filename};
-            await mobile.save();
-            console.log("File uploaded:", req.file);
-        }
-    if(!mobile) {
+      const mobile = await Mobile.findByIdAndUpdate(
+        id,
+        { ...req.body.mobile },
+        { new: true }
+      );
+      // Handle file if it exists
+      if (typeof req.file !== "undefined") {
+        let url = req.file.path;
+        let filename = req.file.filename;
+        mobile.image = { url, filename };
+        await mobile.save();
+      }
+      if (!mobile) {
         console.log("Mobile not found");
         return res.status(404).send("Mobile product not found");
-    }else {
-        console.log(mobile);
+      } else {
+        req.flash("success", "Mobile updated");
         res.redirect(`/products/mobiles/${id}`);
-    }
+      }
     } catch (error) {
-        console.log(error);
-        res.status(500).send("Error occurred while updating the mobile product!");
-           
+      console.log(error);
+      req.flash("error", "something went wrong!");
+      res.status(500).send("Error occurred while updating the mobile product!");
     }
-  
-});
+  }
+);
 
 router.delete("/products/mobiles/:id", async (req, res) => {
-    let {id} = req.params;
-    const deletedMobile = await Mobile.findByIdAndDelete(id);
-    res.redirect("/products/mobiles");
-})
+  let { id } = req.params;
+  const deletedMobile = await Mobile.findByIdAndDelete(id);
+  res.redirect("/products/mobiles");
+});
 
 export default router;
